@@ -1,0 +1,55 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "To Do List on pure javascript",
+  "author": "Shapoval Ruslan",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rshapoval/todolist"
+  },
+  "scripts": {
+    "test": "npm run test:style && npm run test:js",
+    "test-fix": "npm run test:style-fix && npm run test:js-fix",
+    "test:style": "stylelint \"src/scss/**/*\" --syntax=scss",
+    "test:js": "eslint src/js/**/*",
+    "test:style-fix": "stylelint \"src/scss/**/*\" --syntax=scss --fix",
+    "test:js-fix": "eslint src/js/**/* --fix",
+    "start": "gulp"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "css-mqpacker": "^7.0.0",
+    "del": "^3.0.0",
+    "eslint": "^6.7.2",
+    "eslint-config-htmlacademy": "^0.5.2",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-html-extend": "^1.1.6",
+    "gulp-htmlhint": "^3.0.0",
+    "gulp-imagemin": "^6.2.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.1",
+    "husky": "^3.1.0",
+    "node-sass": "^4.13.0",
+    "stylelint": "^12.0.0",
+    "stylelint-config-htmlacademy": "^0.1.4",
+    "stylelint-order": "^3.1.1",
+    "stylelint-order-htmlacademy": "^1.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test"
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "IE 10"
+  ]
+}

@@ -1,0 +1,23 @@
+// PROJECT INFORMATION
+// 	- Document: ___
+// 	- Version:  ___
+// 	- Author:   R. Shapoval
+
+// HELPERS
+// Variables and mixins
+@import "helpers/_variables";
+@import "helpers/_mixins";
+
+// BASE
+// Base styles
+@import "base/_fonts";
+@import "base/_common";
+
+// COMPONENTS
+// Specific modules like a slider, a loader, a widget
+@import "components/_button";
+
+// LAYOUT
+// Main sections of the layout (header, footer, and so on)
+@import "layout/_header";
+@import "layout/_footer";

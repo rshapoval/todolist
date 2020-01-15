@@ -1,0 +1,32 @@
+/*--------------------
+  COMMON STYLES
+--------------------*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 320px;
+  height: 100vh;
+  margin: 0 auto;
+  font-weight: 300;
+  font-size: $f-size;
+  line-height: 0.5;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
