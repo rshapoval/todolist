@@ -6,25 +6,37 @@ var todoListCurrent = todo.querySelector('.todo__list--current');
 var todoListDone = todo.querySelector('.todo__list--done');
 var todoCount = todo.querySelector('.todo__count');
 var todoMessage = todo.querySelector('.todo__message');
+var idMask = 'task_';
+var taskId = 0;
 
 todoNew.addEventListener('change', addTask);
 todoNew.addEventListener('change', addCount);
+
+showTasks();
+setId();
 
 function addTask() {
   var value = todoNew.value;
 
   createTask(value);
+  localStorage.setItem(idMask + taskId, value);
+  taskId++;
 
   todoNew.value = '';
   todoNew.focus();
 }
 
-function createTask(value) {
+function createTask(value, localTaskId) {
   var todoItem = document.createElement('li');
   var todoCheck = document.createElement('input');
   var todoBtnDel = document.createElement('button');
 
+  if (localTaskId) {
+    taskId = localTaskId;
+  }
+
   todoItem.classList.add('todo__item');
+  todoItem.setAttribute('data-id', idMask + taskId);
   todoCheck.classList.add('todo__check');
   todoCheck.setAttribute('type', 'checkbox');
   todoBtnDel.classList.add('todo__del');
@@ -43,25 +55,28 @@ function createTask(value) {
 }
 
 function delTask() {
-  this.parentNode.parentNode.removeChild(this.parentNode);
+  var task = this.parentNode;
+  var key = task.getAttribute('data-id');
+  localStorage.removeItem(key);
+  task.parentNode.removeChild(task);
 }
 
 function checkTask() {
-  var item = this.parentNode;
+  var task = this.parentNode;
   if (this.checked === true) {
-    todoListDone.append(item);
+    todoListDone.append(task);
   } else {
-    todoListCurrent.append(item);
+    todoListCurrent.append(task);
   }
 }
 
 function addCount() {
-  var currentItems = todo.querySelectorAll('.todo__item');
+  var allTasks = todo.querySelectorAll('.todo__item');
 
-  if (currentItems.length) {
-    var doneItems = todoListDone.querySelectorAll('.todo__item');
-    var totalAmount = currentItems.length;
-    var totalDone = doneItems.length;
+  if (allTasks.length) {
+    var doneTasks = todoListDone.querySelectorAll('.todo__item');
+    var totalAmount = allTasks.length;
+    var totalDone = doneTasks.length;
     var percent = totalDone / totalAmount;
 
     todoCount.textContent = totalDone + '/' + totalAmount;
@@ -99,5 +114,31 @@ function showMessage(percent) {
     default:
       todoMessage.textContent = 'Сверхчеловек?!';
       break;
+  }
+}
+
+function showTasks() {
+  if (localStorage.length) {
+    for (var i = 0; i < localStorage.length; i++) {
+      var key = localStorage.key(i);
+      var value = localStorage.getItem(key);
+      var localTaskId = parseInt(key.slice(5), 10);
+
+      createTask(value, localTaskId);
+    }
+  }
+}
+
+function setId() {
+  if (localStorage.length) {
+    for (var i = 0; i < localStorage.length; i++) {
+      var key = localStorage.key(i);
+      var localTaskId = parseInt(key.slice(5), 10);
+
+      if (localTaskId >= taskId) {
+        taskId = localTaskId;
+        taskId++;
+      }
+    }
   }
 }
