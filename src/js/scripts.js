@@ -72,20 +72,24 @@ function checkTask() {
 
 function addCount() {
   var allTasks = todo.querySelectorAll('.todo__item');
+  var percent = 0;
 
   if (allTasks.length) {
     var doneTasks = todoListDone.querySelectorAll('.todo__item');
     var totalAmount = allTasks.length;
     var totalDone = doneTasks.length;
-    var percent = totalDone / totalAmount;
+    percent = totalDone / totalAmount;
 
     todoCount.textContent = totalDone + '/' + totalAmount;
 
     showMessage(percent);
+    displayProgress(percent);
 
   } else {
     todoCount.textContent = '';
     todoMessage.textContent = '';
+
+    displayProgress(percent);
   }
 }
 
@@ -115,6 +119,13 @@ function showMessage(percent) {
       todoMessage.textContent = 'Сверхчеловек?!';
       break;
   }
+}
+
+function displayProgress(percent) {
+  var progressBar = document.querySelector('.progressbar');
+  var width = (percent * 100).toFixed(0);
+
+  progressBar.style.width = width + '%';
 }
 
 function showTasks() {
