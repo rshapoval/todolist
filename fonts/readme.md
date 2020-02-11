@@ -1,4 +1,4 @@
-`src/less/base/_fonts.less`
+`src/scss/base/_fonts.less`
 
 ```css
 @font-face {

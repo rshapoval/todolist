@@ -1,3 +1,39 @@
 /*--------------------
   FONTS
 --------------------*/
+
+@font-face {
+  font-weight: 400;
+  font-family: "Сaveat";
+  font-style: normal;
+  src: url("../../fonts/caveat/caveat-regular.woff2") format("woff2"),
+    url("../../fonts/caveat/caveat-regular.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-weight: 700;
+  font-family: "Сaveat";
+  font-style: normal;
+  src: url("../../fonts/caveat/caveat-700.woff2") format("woff2"),
+    url("../../fonts/caveat/caveat-700.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-weight: 400;
+  font-family: "Montserrat";
+  font-style: normal;
+  src: url("../../fonts/montserrat/montserrat-regular.woff2") format("woff2"),
+    url("../../fonts/montserrat/montserrat-regular.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-weight: 700;
+  font-family: "Montserrat";
+  font-style: normal;
+  src: url("../../fonts/montserrat/montserrat-700.woff2") format("woff2"),
+    url("../../fonts/montserrat/montserrat-700.woff") format("woff");
+  font-display: swap;
+}
