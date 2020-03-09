@@ -1,16 +1,57 @@
     <!-- @@include /parts/_header.html -->
+    <!-- .theme-switch -->
+    <label class="theme-switch">
+      <input class="theme-switch__input" type="checkbox">
+      <span class="theme-switch__custom" aria-hidden="true"></span>
+    </label><!-- /.theme-switch -->
     <!-- .todo -->
     <div class="todo">
-      <input class="todo__new" type="text">
+      <input class="todo__new" type="text" placeholder="Add new task" aria-label="add new task">
       <ul class="todo__list todo__list--current">
+        <li class="todo__item">
+          <!-- .check -->
+          <label class="check">
+            <input class="check__input" type="checkbox">
+            <span class="check__box" aria-hidden="true"></span>
+          </label><!-- /.check -->
+          <span class="todo__value">Lorem ipsum dolor sit amet</span>
+          <button class="todo__del" aria-label="button close"></button>
+        </li>
+        <li class="todo__item">
+          <!-- .check -->
+          <label class="check">
+            <input class="check__input" type="checkbox">
+            <span class="check__box" aria-hidden="true"></span>
+          </label><!-- /.check -->
+          <span class="todo__value">Lorem ipsum dolor sit amet</span>
+          <button class="todo__del" aria-label="button close"></button>
+        </li>
       </ul>
       <ul class="todo__list todo__list--done">
+        <li class="todo__item">
+          <!-- .check -->
+          <label class="check">
+            <input class="check__input" type="checkbox" checked>
+            <span class="check__box" aria-hidden="true"></span>
+          </label><!-- /.check -->
+          <span class="todo__value">Lorem ipsum dolor sit amet</span>
+          <button class="todo__del" aria-label="button close"></button>
+        </li>
+        <li class="todo__item">
+          <!-- .check -->
+          <label class="check">
+            <input class="check__input" type="checkbox" checked>
+            <span class="check__box" aria-hidden="true"></span>
+          </label><!-- /.check -->
+          <span class="todo__value">Lorem ipsum dolor sit amet</span>
+          <button class="todo__del" aria-label="button close"></button>
+        </li>
       </ul>
-      <footer>
-        <span class="todo__count"></span>
-        <p class="todo__message"></p>
+      <footer class="todo__footer">
+        <p class="todo__count" aria-label="todo counter">2/4</p>
+        <p class="todo__message" aria-label="todo message">Lorem ipsum dolor</p>
       </footer>
     </div><!-- /.todo -->
     <!-- .progressbar -->
-    <div class="progressbar"></div><!-- .progressbar -->
+    <div class="progressbar" aria-hidden="true"></div><!-- .progressbar -->
     <!-- @@include /parts/_footer.html -->
