@@ -1,5 +1,26 @@
+// COLOR
+// default
+$bg-color: #ffffff;
+$active-color: #cfe0b9;
+$f-color: #424242;
+$placeholder-color: rgba(66, 66, 66, 0.5);
+$outline-color: rgba(38, 143, 255, 0.5);
+$hover-color: rgba(196, 196, 196, 0.25);
+$elem-color: #9e9e9e;
+
+// dark theme
+$d-bg-color: #343334;
+$d-bg-color-todo: #2a282a;
+$d-active-color: #ff8a00;
+$d-f-color: rgba(255, 255, 255, 0.8);
+$d-placeholder-color: #979797;
+$d-outline-color: rgba(38, 143, 255, 0.7);
+
 // FONT
-$f-size: 16px;
+$f-family: "Montserrat";
+$f-family-secondary: "Сaveat";
+$f-size: 18px;
+$f-size-secondary: 40px;
 
 // MEDIA
 // min

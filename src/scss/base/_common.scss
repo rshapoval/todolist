@@ -20,9 +20,12 @@ body {
   min-width: 320px;
   height: 100vh;
   margin: 0 auto;
-  font-weight: 300;
+  font-weight: 400;
   font-size: $f-size;
   line-height: 0.5;
+  font-family: $f-family;
+  color: $f-color;
+  background: $bg-color;
 }
 
 ul,
