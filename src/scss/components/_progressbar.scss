@@ -1,0 +1,13 @@
+/*--------------------
+  PROGRESSBAR
+--------------------*/
+
+.progressbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 4px;
+  background: $active-color;
+  transition: 0.5s width;
+}

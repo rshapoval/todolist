@@ -1,0 +1,64 @@
+/*--------------------
+  THEME-SWITCH
+--------------------*/
+
+.theme-switch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border-radius: 10px;
+
+  @include size(40px, 20px);
+
+  @media screen and (min-width: $md-min) {
+    top: 40px;
+    right: 100px;
+  }
+
+  &__custom {
+    display: block;
+    background: #c4c4c4;
+    border-radius: inherit;
+    cursor: pointer;
+    transition: 0.2s background, 0.2s box-shadow;
+
+    @include size(inherit, inherit);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #ffffff;
+      border: 1px solid $elem-color;
+      border-radius: inherit;
+      transition: 0.2s transform;
+
+      @include size(50%, inherit);
+    }
+  }
+
+  &__input {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+
+    @include size(1px, 1px);
+
+    &:hover + .theme-switch__custom {
+      box-shadow: 0 0 0 2px $hover-color;
+    }
+
+    &:focus + .theme-switch__custom {
+      box-shadow: 0 0 0 2px $outline-color;
+    }
+
+    &:checked + .theme-switch__custom {
+      background: $active-color;
+
+      &::before {
+        transform: translate(100%);
+      }
+    }
+  }
+}
