@@ -1,0 +1,54 @@
+/*--------------------
+  CHECK
+--------------------*/
+
+.check {
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
+
+  @include size(20px, 20px);
+
+  &__box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $elem-color;
+    border-radius: inherit;
+
+    @include size(inherit, inherit);
+
+    &::before {
+      content: "";
+      display: block;
+      border-radius: inherit;
+      transition: 0.2s background;
+
+      @include size(14px, 14px);
+    }
+  }
+
+  &__input {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+
+    @include size(1px, 1px);
+
+    &:hover + .check__box {
+      box-shadow: 0 0 0 2px $hover-color;
+    }
+
+    &:focus + .check__box,
+    &:active + .check__box {
+      box-shadow: 0 0 0 2px $outline-color;
+    }
+
+    &:checked + .check__box {
+      &::before {
+        background: $active-color;
+      }
+    }
+  }
+}
