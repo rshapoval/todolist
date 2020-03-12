@@ -3,5 +3,36 @@
 --------------------*/
 
 .footer {
+  display: flex;
   flex-shrink: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  padding: 15px;
+  background: url("../../img/footer_xs.png") #41604f center top no-repeat;
+
+  @media screen and (min-width: $sm-min) {
+    background-image: url("../../img/footer_sm.png");
+  }
+
+  @media screen and (min-width: $md-min) {
+    background-image: url("../../img/footer_md.png");
+  }
+
+  @media screen and (min-width: $lg-min) {
+    background-image: url("../../img/footer_lg.png");
+  }
+
+  @media screen and (min-width: $xl-min) {
+    background-image: url("../../img/footer_xl.png");
+  }
+
+  &__copy {
+    margin: 0;
+    font-weight: 400;
+    font-size: $f-size-secondary;
+    font-family: $f-family-secondary;
+    color: #ffffff;
+  }
 }

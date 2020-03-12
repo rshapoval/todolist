@@ -49,7 +49,8 @@
       box-shadow: 0 0 0 2px $hover-color;
     }
 
-    &:focus + .theme-switch__custom {
+    &:focus + .theme-switch__custom,
+    &:active + .theme-switch__custom {
       box-shadow: 0 0 0 2px $outline-color;
     }
 

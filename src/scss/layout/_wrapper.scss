@@ -4,4 +4,9 @@
 
 .wrapper {
   flex: 1 0 auto;
+  padding: 0 15px 70px;
+
+  @media screen and (min-width: $lg-min) {
+    padding-bottom: 130px;
+  }
 }
