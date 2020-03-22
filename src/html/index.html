@@ -1,7 +1,10 @@
     <!-- @@include /parts/_header.html -->
     <!-- .todo -->
     <div class="todo">
-      <input class="todo__new" type="text" placeholder="Add new task" aria-label="add new task">
+      <label class="todo__new-wrap">
+        <input class="todo__new" type="text" placeholder="Add new task" aria-label="add new task">
+        <span class="todo__new-icon" aria-hidden="true"></span>
+      </label>
       <ul class="todo__list todo__list--current">
         <li class="todo__item">
           <!-- .check -->
@@ -42,7 +45,7 @@
           <button class="todo__del" aria-label="button close"></button>
         </li>
       </ul>
-      <footer class="todo__footer">
+      <footer class="todo__footer" style="display: none;">
         <p class="todo__count" aria-label="todo counter">2/4</p>
         <p class="todo__message" aria-label="todo message">Lorem ipsum dolor</p>
       </footer>

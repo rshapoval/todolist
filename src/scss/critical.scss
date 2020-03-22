@@ -7,7 +7,10 @@
 @import "base/_common";
 
 // COMPONENTS
-@import "components/_todo";
+@import "components/_theme-switch";
+@import "components/_check";
+@import "components/_progressbar";
 
 // LAYOUT
 @import "layout/_header";
+@import "layout/_todo";

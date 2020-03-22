@@ -1,0 +1,183 @@
+/*--------------------
+  TODO
+--------------------*/
+
+.todo {
+  display: flex;
+  flex-direction: column;
+  max-width: 290px;
+  min-height: 520px;
+  margin: 0 auto;
+  padding: 35px;
+  background: url("../../img/todo-icon_light.svg") $bg-color center / 250px 210px no-repeat;
+  border-radius: 35px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1), -4px 4px 10px rgba(0, 0, 0, 0.1);
+
+  @media screen and (min-width: $sm-min) {
+    max-width: 440px;
+  }
+
+  &__new-wrap {
+    position: relative;
+    display: block;
+    margin: 0 0 30px;
+  }
+
+  &__new-icon {
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      right: 17px;
+      bottom: 16px;
+      width: 20px;
+      border-top: 2px solid $active-color;
+      cursor: text;
+      transition: 0.2s border-color;
+    }
+
+    &::after {
+      transform: rotate(90deg);
+    }
+  }
+
+  &__new {
+    width: 100%;
+    padding: 0.9em 40px 0.35em 1em;
+    color: $f-color;
+    border: none;
+    border-bottom: 2px solid $active-color;
+    outline: none;
+    transition: 0.2s border-color, 0.2s background, 0.2s box-shadow;
+
+    &:hover {
+      background: #eff8e5;
+    }
+
+    &:focus {
+      background: #ffffff;
+      border-color: $outline-color;
+
+      + .todo__new-icon {
+        &::before,
+        &::after {
+          border-color: $outline-color;
+        }
+      }
+    }
+
+    &::-webkit-input-placeholder {
+      color: $placeholder-color;
+    }
+
+    &::-moz-placeholder {
+      color: $placeholder-color;
+    }
+
+    &:-ms-input-placeholder {
+      color: $placeholder-color;
+    }
+
+    &:-moz-placeholder {
+      color: $placeholder-color;
+    }
+  }
+
+  &__list {
+    // display: none;
+    &--current {
+      margin: 0 0 30px;
+    }
+
+    &--done {
+      margin: auto 0 0;
+      color: #6d6d6d;
+
+      .todo__item {
+        border-color: #b7b7b7;
+      }
+
+      .todo__value {
+        text-decoration: line-through;
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0.5em 1em;
+    list-style: none;
+    border-bottom: 1px solid $elem-color;
+
+    &:nth-of-type(n+2) {
+      margin-top: 15px;
+    }
+
+    &:hover {
+      .todo__del {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__check {
+    flex-shrink: 0;
+    margin: 2px 1em 0 0;
+  }
+
+  &__value {
+    margin-right: 14px;
+  }
+
+  &__del {
+    position: relative;
+    flex-shrink: 0;
+    margin-left: auto;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s, background 0.2s, box-shadow 0.2s, transform 0.3s;
+
+    @include size(24px, 24px);
+
+    &:hover {
+      background: $hover-color;
+      transform: rotate(90deg);
+      transform-origin: center;
+    }
+
+    &:focus {
+      background: none;
+      box-shadow: 0 0 0 2px $outline-color;
+      opacity: 1;
+    }
+
+    &:active {
+      background: rgba(196, 196, 196, 0.25);
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      border: 1px solid $elem-color;
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+}

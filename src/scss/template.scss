@@ -10,13 +10,13 @@
 
 // BASE
 // Base styles
+@import "base/_normalize";
 @import "base/_fonts";
 @import "base/_common";
 
 // COMPONENTS
 // Specific modules like a slider, a loader, a widget
 @import "components/_theme-switch";
-@import "components/_todo";
 @import "components/_check";
 @import "components/_progressbar";
 
@@ -24,4 +24,5 @@
 // Main sections of the layout (header, footer, and so on)
 @import "layout/_wrapper";
 @import "layout/_header";
+@import "layout/_todo";
 @import "layout/_footer";
