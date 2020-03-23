@@ -46,16 +46,16 @@
     @include size(1px, 1px);
 
     &:hover + .theme-switch__custom {
-      box-shadow: 0 0 0 2px $hover-color;
+      box-shadow: 0 0 0 3px $hover-color;
     }
 
     &:focus + .theme-switch__custom,
     &:active + .theme-switch__custom {
-      box-shadow: 0 0 0 2px $outline-color;
+      box-shadow: 0 0 0 3px $outline-color;
     }
 
     &:checked + .theme-switch__custom {
-      background: $active-color;
+      background: $d-active-color;
 
       &::before {
         transform: translate(100%);

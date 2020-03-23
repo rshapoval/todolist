@@ -11,3 +11,9 @@
   background: $active-color;
   transition: 0.5s width;
 }
+
+.dark {
+  .progressbar {
+    background: $d-active-color;
+  }
+}

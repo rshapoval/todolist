@@ -10,6 +10,7 @@
   margin: 0 auto;
   padding: 35px;
   background: url("../../img/todo-icon_light.svg") $bg-color center / 250px 210px no-repeat;
+  background-image: none;
   border-radius: 35px;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1), -4px 4px 10px rgba(0, 0, 0, 0.1);
 
@@ -45,6 +46,7 @@
     width: 100%;
     padding: 0.9em 40px 0.35em 1em;
     color: $f-color;
+    background: inherit;
     border: none;
     border-bottom: 2px solid $active-color;
     outline: none;
@@ -55,7 +57,7 @@
     }
 
     &:focus {
-      background: #ffffff;
+      background: inherit;
       border-color: $outline-color;
 
       + .todo__new-icon {
@@ -154,7 +156,7 @@
 
     &:focus {
       background: none;
-      box-shadow: 0 0 0 2px $outline-color;
+      box-shadow: 0 0 0 3px $outline-color;
       opacity: 1;
     }
 
@@ -178,6 +180,79 @@
 
     &::after {
       transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+}
+
+.dark {
+  .todo {
+    background: url("../../img/todo-icon_dark.svg") $d-bg-color-todo center / 250px 210px no-repeat;
+    background-image: none;
+    box-shadow: 4px 4px 10px rgba(255, 255, 255, 0.05), -4px 4px 10px rgba(255, 255, 255, 0.05);
+
+    &__new-icon {
+      &::before,
+      &::after {
+        border-color: $d-active-color;
+      }
+    }
+
+    &__new {
+      color: $d-f-color;
+      border-color: $d-active-color;
+
+      &:hover {
+        background: #333333;
+      }
+
+      &:focus {
+        border-color: $d-outline-color;
+
+        + .todo__new-icon {
+          &::before,
+          &::after {
+            border-color: $d-outline-color;
+          }
+        }
+      }
+
+      &::-webkit-input-placeholder {
+        color: $d-placeholder-color;
+      }
+
+      &::-moz-placeholder {
+        color: $d-placeholder-color;
+      }
+
+      &:-ms-input-placeholder {
+        color: $d-placeholder-color;
+      }
+
+      &:-moz-placeholder {
+        color: $d-placeholder-color;
+      }
+    }
+
+    &__list {
+      &--done {
+        color: rgba(255, 255, 255, 0.55);
+        border-color: rgba(158, 158, 158, 0.4);
+      }
+    }
+
+    &__item {
+      border-color: $d-elem-color;
+    }
+
+    &__del {
+      &:focus {
+        box-shadow: 0 0 0 3px $d-outline-color;
+      }
+
+      &::before,
+      &::after {
+        border-color: $d-elem-color;
+      }
     }
   }
 }

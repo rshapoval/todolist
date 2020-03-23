@@ -38,18 +38,40 @@
     @include size(1px, 1px);
 
     &:hover + .check__box {
-      box-shadow: 0 0 0 2px $hover-color;
+      box-shadow: 0 0 0 3px $hover-color;
     }
 
     &:focus + .check__box,
     &:active + .check__box {
-      box-shadow: 0 0 0 2px $outline-color;
+      box-shadow: 0 0 0 3px $outline-color;
     }
 
     &:checked + .check__box {
       &::before {
         background: $active-color;
       }
+    }
+  }
+}
+
+
+.dark {
+  .check {
+    &__input {
+      &:focus + .check__box,
+      &:active + .check__box {
+        box-shadow: 0 0 0 3px $d-outline-color;
+      }
+
+      &:checked + .check__box {
+        &::before {
+          background: $d-active-color;
+        }
+      }
+    }
+
+    &__box {
+      border-color: $d-elem-color;
     }
   }
 }
