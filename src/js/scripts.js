@@ -11,8 +11,12 @@ var idMask = 'task_';
 var idMaskCheck = 'checkedtask_';
 var taskId = 0;
 
-todoNew.addEventListener('change', addTask);
-todoNew.addEventListener('change', addCount);
+todoNew.addEventListener('keydown', function (evt) {
+  if (evt.keyCode === 13) {
+    addTask();
+    addCount();
+  }
+});
 
 showTasks();
 setId();
@@ -33,7 +37,7 @@ function addTask() {
 // Task creation
 function createTask(value, localMask, localTaskId) {
   var todoItem = document.createElement('li');
-  var todoCheck = document.createElement('input');
+  var todoCheck = createCheckbox();
   var todoValue = document.createElement('span');
   var todoBtnDel = document.createElement('button');
 
@@ -43,22 +47,18 @@ function createTask(value, localMask, localTaskId) {
 
   todoItem.classList.add('todo__item');
   todoItem.setAttribute('data-id', idMask + taskId);
-  todoCheck.classList.add('todo__check');
-  todoCheck.setAttribute('type', 'checkbox');
   todoValue.classList.add('todo__value');
   todoValue.textContent = value;
   todoBtnDel.classList.add('todo__del');
-  todoBtnDel.textContent = 'x';
 
   todoItem.prepend(todoCheck);
-  todoItem.append(todoValue);
-  todoItem.append(todoBtnDel);
+  todoItem.append(todoValue, todoBtnDel);
 
   if (localMask !== 'checkedtask') {
     todoListCurrent.append(todoItem);
   } else {
     todoItem.setAttribute('data-id', idMaskCheck + taskId);
-    todoCheck.checked = true;
+    todoCheck.querySelector('.check__input').checked = true;
     todoListDone.append(todoItem);
   }
 
@@ -66,6 +66,23 @@ function createTask(value, localMask, localTaskId) {
   todoCheck.addEventListener('click', checkTask);
   todoBtnDel.addEventListener('click', addCount);
   todoCheck.addEventListener('click', addCount);
+}
+
+// Create custom checkbox
+function createCheckbox() {
+  var check = document.createElement('label');
+  var checkInput = document.createElement('input');
+  var checkBox = document.createElement('span');
+
+  check.classList.add('check', 'todo__check');
+  checkInput.classList.add('check__input');
+  checkInput.setAttribute('type', 'checkbox');
+  checkBox.classList.add('check__box');
+  checkBox.setAttribute('aria-hidden', 'true');
+
+  check.append(checkInput, checkBox);
+
+  return check;
 }
 
 // Delete task
@@ -86,7 +103,7 @@ function checkTask() {
   localStorage.removeItem(key);
   var value = todoValue.innerText;
 
-  if (this.checked === true) {
+  if (this.querySelector('.check__input').checked === true) {
     task.setAttribute('data-id', idMaskCheck + currentTaskId);
     localStorage.setItem(idMaskCheck + currentTaskId, value);
     todoListDone.append(task);
