@@ -22,11 +22,15 @@ body {
   height: 100vh;
   margin: 0 auto;
   font-weight: 400;
-  font-size: $f-size;
+  font-size: $f-size-xs;
   line-height: 1.3;
   font-family: $f-family;
   color: $f-color;
   background: $bg-color;
+
+  @media screen and (min-width: $sm-min) {
+    font-size: $f-size;
+  }
 }
 
 ul,
