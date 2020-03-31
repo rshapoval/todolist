@@ -1,5 +1,9 @@
 'use strict';
 
+var themeSwitch = document.querySelector('.theme-switch');
+var themeSwitchInput = themeSwitch.querySelector('.theme-switch__input');
+
+var body = document.body;
 var todo = document.querySelector('.todo');
 var todoNew = todo.querySelector('.todo__new');
 var todoListCurrent = todo.querySelector('.todo__list--current');
@@ -11,6 +15,8 @@ var idMask = 'task_';
 var idMaskCheck = 'checkedtask_';
 var taskId = 0;
 
+themeSwitchInput.addEventListener('change', toggleTheme);
+
 todoNew.addEventListener('keydown', function (evt) {
   if (evt.keyCode === 13) {
     addTask();
@@ -21,6 +27,15 @@ todoNew.addEventListener('keydown', function (evt) {
 showTasks();
 setId();
 addCount();
+
+// Toggle theme
+function toggleTheme() {
+  if (themeSwitchInput.checked) {
+    body.classList.add('dark');
+  } else {
+    body.classList.remove('dark');
+  }
+}
 
 // Adding new task
 function addTask() {
@@ -127,13 +142,14 @@ function addCount() {
     percent = totalDone / totalAmount;
 
     todoCount.textContent = totalDone + '/' + totalAmount;
+    todo.style.backgroundImage = 'none';
 
     showMessage(percent);
     showProgress(percent);
-
   } else {
     todoCount.textContent = '';
     todoMessage.textContent = '';
+    todo.style.backgroundImage = '';
 
     showProgress(percent);
   }

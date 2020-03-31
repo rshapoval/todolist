@@ -9,7 +9,6 @@
   margin: 0 auto;
   padding: 15px;
   background: url("../../img/todo-icon_light.svg") $bg-color center / 250px 210px no-repeat;
-  background-image: none;
   border-radius: 20px;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1), -4px 4px 10px rgba(0, 0, 0, 0.1);
 
@@ -74,10 +73,7 @@
       border-color: $outline-color;
 
       + .todo__new-icon {
-        &::before,
-        &::after {
-          border-color: $outline-color;
-        }
+        display: none;
       }
     }
 
@@ -99,7 +95,6 @@
   }
 
   &__list {
-    // display: none;
     &--current {
       margin: 0 0 30px;
     }
@@ -229,7 +224,6 @@
 .dark {
   .todo {
     background: url("../../img/todo-icon_dark.svg") $d-bg-color-todo center / 250px 210px no-repeat;
-    background-image: none;
     box-shadow: 4px 4px 10px rgba(255, 255, 255, 0.05), -4px 4px 10px rgba(255, 255, 255, 0.05);
 
     &__new-icon {
@@ -250,13 +244,6 @@
       &:focus {
         background: $d-bg-color-todo;
         border-color: $d-outline-color;
-
-        + .todo__new-icon {
-          &::before,
-          &::after {
-            border-color: $d-outline-color;
-          }
-        }
       }
 
       &::-webkit-input-placeholder {
